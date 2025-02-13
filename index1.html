@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6f2;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            color: red;
+            font-size: 3em;
+        }
+        .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .yes { background-color: #ff4d4d; color: white; }
+        .no { background-color: #ccc; color: black; position: absolute; }
+        .baby-image {
+            display: none;
+            width: 300px;
+            margin-top: 20px;
+        }
+        
+        @keyframes floatHearts {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2em;
+            animation: floatHearts 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine, Puseletso my beautiful angel? 😘❤️</h1>
+    <button class="btn yes" onclick="showBabyImage()">Yes</button>
+    <button class="btn no" onmouseover="moveButton()">No</button>
+    
+    <img id="babyImage" class="baby-image" src="https://media.tenor.com/images/7a8a8a8a8a8a8a8a8a8a8a8a8a8a8a8a/tenor.gif" alt="Cartoon blowing a kiss with hearts">
+
+    <script>
+        function moveButton() {
+            let button = document.querySelector('.no');
+            button.style.top = Math.random() * window.innerHeight + "px";
+            button.style.left = Math.random() * window.innerWidth + "px";
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+        
+        function showBabyImage() {
+            document.getElementById('babyImage').style.display = 'block';
+            alert('Yay! I love you! ❤️');
+        }
+    </script>
+</body>
+</html>
